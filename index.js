@@ -11,10 +11,22 @@
 
 // console.log(sumAll([1, 4]));
 
-let myArray = ["a", "b", "c", "d"];
-// Змініть код лише під цим рядком
+// let myArray = ["a", "b", "c", "d"];
+// // Змініть код лише під цим рядком
 
-myArray[1]=true;
+// myArray[1]=true;
 
-// Змініть код лише над цим рядком
-console.log(myArray);
+// // Змініть код лише над цим рядком
+// console.log(myArray);
+
+
+function mutation(arr) {
+    const test = arr[1].toLowerCase();
+    const target = arr[0].toLowerCase();
+    for (let i = 0; i < test.length; i++) {
+      if (target.indexOf(test[i]) < 0) return false;
+    }
+    return true;
+  }
+  
+  mutation(["hello", "hey"]);
