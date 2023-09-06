@@ -40,30 +40,38 @@
 //   }
 // }
 
-// towerBuilder(4)
+// towerBuilder(4)urs = 
 
 
 
 function stat(strg) {
 let arr1=[]
 arr1=strg.split(',')
+let arrFin =[]
 
 for(let i =0; i<arr1.length; i++) {
   arrNew = arr1[i].split('|')
   let seconds = Number(arrNew[0])*60*60+Number(arrNew[1])*60+Number(arrNew[2])
-  console.log(seconds)
+  arrFin.push(seconds)
 }
 
-console.log(arr1)
+let minResult = Math.min.apply(null, arrFin)
+let maxResult = Math.max.apply(null, arrFin)
+let range = maxResult-minResult
 
-// arr1.map(date=>{
-//  let newDate = date.replace('|', ':').replace('|', ':')
-//   console.log(newDate)
-  
+// let hours = Math.floor(range%3600)
+// hours >=3600 ? console.log('ok') : console.log('notok')
+// let minutes = Math.floor(range / 60);
+// let seconds = range % 60;
+// console.log(range)
+// console.log(hours)
+// console.log(minutes)
+// console.log(seconds)
 
-// })
-
-
+const date = new Date(null);
+date.setSeconds(range); // specify value for SECONDS here
+const result = date.toISOString().slice(11, 19);
+console.log(result)
 
 }
 
