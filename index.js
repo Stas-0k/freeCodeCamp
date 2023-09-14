@@ -40,59 +40,75 @@
 
 // towerBuilder(4)urs =
 
-function stat(strg) {
+// function stat(strg) {
   
-  let arr1 = [];
-  arr1 = strg.split(",");
-  let arrFin = [];
+//   let arr1 = [];
+//   arr1 = strg.split(",");
+//   let arrFin = [];
 
-  for (let i = 0; i < arr1.length; i++) {
-    arrNew = arr1[i].split("|");
-    let seconds =
-      Number(arrNew[0]) * 60 * 60 + Number(arrNew[1]) * 60 + Number(arrNew[2]);
-    arrFin.push(seconds);
-  }
+//   for (let i = 0; i < arr1.length; i++) {
+//     arrNew = arr1[i].split("|");
+//     let seconds =
+//       Number(arrNew[0]) * 60 * 60 + Number(arrNew[1]) * 60 + Number(arrNew[2]);
+//     arrFin.push(seconds);
+//   }
 
-  arrFin.sort(function(a,b){return a-b});
+//   arrFin.sort(function(a,b){return a-b});
 
-  let sum = 0;
+//   let sum = 0;
 
-  for (let i = 0; i < arrFin.length; i++) {
-    sum += arrFin[i];
-  }
+//   for (let i = 0; i < arrFin.length; i++) {
+//     sum += arrFin[i];
+//   }
 
-  let minResult = Math.min.apply(null, arrFin);
-  let maxResult = Math.max.apply(null, arrFin);
-  let range = maxResult - minResult;
-  let avg = sum / arrFin.length;
+//   let minResult = Math.min.apply(null, arrFin);
+//   let maxResult = Math.max.apply(null, arrFin);
+//   let range = maxResult - minResult;
+//   let avg = sum / arrFin.length;
 
-  let med=0;
+//   let med=0;
 
-  if(arrFin.length%2===0) {
-    med = (arrFin[arrFin.length/2]+arrFin[arrFin.length/2-1])/2
-  } else {
-    med = arrFin[Math.ceil(arrFin.length/2-1)]
-  }
+//   if(arrFin.length%2===0) {
+//     med = (arrFin[arrFin.length/2]+arrFin[arrFin.length/2-1])/2
+//   } else {
+//     med = arrFin[Math.ceil(arrFin.length/2-1)]
+//   }
 
   
 
-  // console.log(arrFin);
-  // console.log(secToDate(range));
-  // console.log(secToDate(avg));
-  // console.log(med)
+//   // console.log(arrFin);
+//   // console.log(secToDate(range));
+//   // console.log(secToDate(avg));
+//   // console.log(med)
 
-  return `Range: ${secToDate(range)} Average: ${secToDate(avg)} Median: ${secToDate(med)}`
+//   return `Range: ${secToDate(range)} Average: ${secToDate(avg)} Median: ${secToDate(med)}`
+// }
+
+
+// const secToDate = (seconds) => {
+//   if(seconds==='') {return ''} else {
+//   const date = new Date(null);
+  
+//   date.setSeconds(seconds);
+//   const result = date.toISOString().slice(11, 19).replace(':', '|').replace(':', '|');
+//   return result;
+//   }
+// };
+
+// console.log(stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41"))
+
+
+
+
+const tikTak = (arr) => {
+  const arrNew = arr.reduce(function (a, b) {
+    return a.concat(b);
+  })
+
+  console.log(arrNew)
+
 }
 
-
-const secToDate = (seconds) => {
-  if(seconds===''|| NaN) {return} else {
-  const date = new Date(null);
-  
-  date.setSeconds(seconds);
-  const result = date.toISOString().slice(11, 19).replace(':', '|').replace(':', '|');
-  return result;
-  }
-};
-
-console.log(stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41"))
+tikTak([[0, 0, 1],
+  [0, 1, 2],
+  [2, 1, 0]])
