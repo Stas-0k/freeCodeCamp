@@ -119,19 +119,31 @@ function nextBigger(num) {
       arr.splice(arr.length - (i + 1), 0, arr[arr.length - 1]);
       arr.splice(arr.length - 1, 1);
 
-      let arrSort2=[]
-      arrSort = arr.slice(arr.length - (i-1) ,arr.length).sort(function(a,b){return a-b})
+      let arrSort1 = [];
+      arrSort1 = arr.slice(0, arr.length - (i - 1));
+
+      let arrSort2 = [];
+      arrSort2 = arr
+        .slice(arr.length - (i - 1), arr.length)
+        .sort(function (a, b) {
+          return a - b;
+        });
+
+      let finArr = [];
+      finArr = arrSort1.concat(arrSort2);
 
       console.log(arr);
-      console.log(arrSort);
+      console.log(arrSort1);
+      console.log(arrSort2);
+      console.log(finArr);
 
-      let bigger = Number(arr.join(""));
+      let bigger = Number(finArr.join(""));
       console.log(bigger);
       return bigger;
-    } 
+    }
   }
-  console.log('-1')
-  return -1
+  console.log("-1");
+  return -1;
 }
 
-nextBigger(580753);
+nextBigger(94902820);
