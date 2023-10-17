@@ -41,7 +41,7 @@
 // towerBuilder(4)urs =
 
 // function stat(strg) {
-  
+
 //   let arr1 = [];
 //   arr1 = strg.split(",");
 //   let arrFin = [];
@@ -74,8 +74,6 @@
 //     med = arrFin[Math.ceil(arrFin.length/2-1)]
 //   }
 
-  
-
 //   // console.log(arrFin);
 //   // console.log(secToDate(range));
 //   // console.log(secToDate(avg));
@@ -84,11 +82,10 @@
 //   return `Range: ${secToDate(range)} Average: ${secToDate(avg)} Median: ${secToDate(med)}`
 // }
 
-
 // const secToDate = (seconds) => {
 //   if(seconds==='') {return ''} else {
 //   const date = new Date(null);
-  
+
 //   date.setSeconds(seconds);
 //   const result = date.toISOString().slice(11, 19).replace(':', '|').replace(':', '|');
 //   return result;
@@ -97,18 +94,44 @@
 
 // console.log(stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41"))
 
+// const tikTak = (arr) => {
+//   const arrNew = arr.reduce(function (a, b) {
+//     return a.concat(b);
+//   })
 
+//   console.log(arrNew)
 
+// }
 
-const tikTak = (arr) => {
-  const arrNew = arr.reduce(function (a, b) {
-    return a.concat(b);
-  })
+// tikTak([[0, 0, 1],
+//   [0, 1, 2],
+//   [2, 1, 0]])
 
-  console.log(arrNew)
+function nextBigger(num) {
+  let arr = [];
 
+  arr = Array.from(String(num), Number);
+
+  console.log(arr);
+
+  for (let i = 1; i < arr.length; i += 1) {
+    if (arr[arr.length - 1] > arr[arr.length - (i + 1)]) {
+      arr.splice(arr.length - (i + 1), 0, arr[arr.length - 1]);
+      arr.splice(arr.length - 1, 1);
+
+      let arrSort2=[]
+      arrSort = arr.slice(arr.length - (i-1) ,arr.length).sort(function(a,b){return a-b})
+
+      console.log(arr);
+      console.log(arrSort);
+
+      let bigger = Number(arr.join(""));
+      console.log(bigger);
+      return bigger;
+    } 
+  }
+  console.log('-1')
+  return -1
 }
 
-tikTak([[0, 0, 1],
-  [0, 1, 2],
-  [2, 1, 0]])
+nextBigger(580753);
