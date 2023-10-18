@@ -120,14 +120,91 @@ function nextBigger(num) {
       arr.splice(arr.length - 1, 1);
 
       let arrSort1 = [];
-      arrSort1 = arr.slice(0, arr.length - (i - 1));
+      arrSort1 = arr.slice(0, arr.length - i);
 
       let arrSort2 = [];
-      arrSort2 = arr
-        .slice(arr.length - (i - 1), arr.length)
-        .sort(function (a, b) {
-          return a - b;
-        });
+      arrSort2 = arr.slice(arr.length - i, arr.length).sort(function (a, b) {
+        return a - b;
+      });
+
+      let finArr = [];
+      finArr = arrSort1.concat(arrSort2);
+
+      console.log(arr);
+      console.log(arrSort1);
+      console.log(arrSort2);
+      console.log(finArr);
+
+      let bigger = Number(finArr.join(""));
+      console.log(bigger);
+      return bigger;
+    } else if (arr[arr.length - i] > arr[arr.length - (i + 1)]
+    & arr[arr.length - i] > arr[arr.length - (i - 1)]) {
+      console.log("v2");
+      arr.splice(arr.length - (i + 1), 0, arr[arr.length - i]);
+      arr.splice(arr.length - i, 1);
+
+      let arrSort1 = [];
+      arrSort1 = arr.slice(0, arr.length - i);
+
+      let arrSort2 = [];
+      arrSort2 = arr.slice(arr.length - i, arr.length).sort(function (a, b) {
+        return a - b;
+      });
+
+      let finArr = [];
+      finArr = arrSort1.concat(arrSort2);
+
+      console.log(arr);
+      console.log(arrSort1);
+      console.log(arrSort2);
+      console.log(finArr);
+
+      let bigger = Number(finArr.join(""));
+      console.log(bigger);
+      return bigger;
+    } else if (arr[arr.length - i] > arr[arr.length - (i + 1)]
+    & arr[arr.length - i] < arr[arr.length - (i - 1)]) {
+      console.log("v3");
+      console.log(i);
+      console.log(arr[i])
+      arr.splice(arr.length - (i +1), 0, arr[arr.length - i+1]);
+       arr.splice(arr.length - i+1, 1);
+
+      let arrSort1 = [];
+      arrSort1 = arr.slice(0, arr.length - i);
+
+      let arrSort2 = [];
+      arrSort2 = arr.slice(arr.length - i, arr.length).sort(function (a, b) {
+        return a - b;
+      });
+
+      let finArr = [];
+      finArr = arrSort1.concat(arrSort2);
+
+      console.log(arr);
+      console.log(arrSort1);
+      console.log(arrSort2);
+      console.log(finArr);
+
+      let bigger = Number(finArr.join(""));
+      console.log(bigger);
+      return bigger;
+    } else if (arr[arr.length - i] <arr[arr.length - (i + 1)]
+    & arr[arr.length - i] > arr[arr.length - (i - 1)]) {
+      console.log("v4");
+      console.log(i);
+      console.log(arr[arr.length - i])
+      arr.splice(arr.length - (i +2), 0, arr[arr.length - i]);
+       arr.splice(arr.length - i, 1);
+
+      let arrSort1 = [];
+      arrSort1 = arr.slice(0, arr.length - i-1);
+
+      let arrSort2 = [];
+      arrSort2 = arr.slice(arr.length - i-1, arr.length).sort(function (a, b) {
+        return a - b;
+      });
 
       let finArr = [];
       finArr = arrSort1.concat(arrSort2);
@@ -146,4 +223,4 @@ function nextBigger(num) {
   return -1;
 }
 
-nextBigger(94902820);
+nextBigger(826391340329620);
